@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WuWa Rotation Trainer - Select a Rotation</title>
+  <style>
+    html {
+      font-size: clamp(14px, 1.2vw, 18px);
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121214;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 0.5rem;
+    }
+
+    #search-bar {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      background-color: #1e1e24;
+      border: 1px solid #475569;
+      color: #e2e8f0;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease;
+    }
+
+    #search-bar:focus {
+      outline: 2px solid #0284c7;
+      border-color: #0284c7;
+    }
+
+    #rotation-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .rotation-link {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      background-color: #1e1e24;
+      padding: 1.25rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: #e2e8f0;
+      border: 1px solid #2d2d34;
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .rotation-link:hover {
+      transform: translateY(-3px);
+      border-color: #38bdf8;
+    }
+
+    .rotation-link .title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .team-portraits {
+      display: flex;
+      flex-shrink: 0;
+    }
+
+    .team-portraits img {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      border: 2px solid #475569;
+      margin-left: -1rem;
+      background-color: #121214;
+      position: relative;
+      /* Required for z-index to take effect */
+    }
+
+    .team-portraits img:first-child {
+      margin-left: 0;
+      z-index: 3;
+      /* On top */
+    }
+
+    .team-portraits img:nth-child(2) {
+      z-index: 2;
+      /* In the middle */
+    }
+
+    .team-portraits img:nth-child(3) {
+      z-index: 1;
+      /* At the bottom */
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .rotation-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .no-results {
+      color: #94a3b8;
+      text-align: center;
+      padding: 2rem;
+      background-color: #1e1e24;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Select a Rotation</h1>
+    <input type="text" id="search-bar" placeholder="Search by filename..." autofocus />
+    <div id="rotation-list"></div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 📝 EDIT THIS SECTION TO ADD/REMOVE TRAINER PAGES 📝
+    // =========================================================================
+    const rotationData = [
+      {
+        file: "./Rotations/trial.html",
+        title: "Cartethyia Ciaccona Rover Easy MasterClass [Level: Easy]",
+        description: "Created by Gabriel Hobbies",
+        teamImages: [
+          "./Rotations/ResonatorImages/Resonator_Cartethyia.webp",
+          "./Rotations/ResonatorImages/Resonator_Ciaccona.webp",
+          "./Rotations/ResonatorImages/Resonator_Rover.webp",
+        ],
+      },
+      // Add other trainer objects here, for example:
+      // {
+      //   file: "jianxin-support-rotation.html",
+      //   title: "Jianxin Support Rotation",
+      //   description: "Team: Jianxin, Calcharo, Verina",
+      // },
+    ];
+    // =========================================================================
+
+    const rotationListContainer = document.getElementById("rotation-list");
+    const searchBar = document.getElementById("search-bar");
+
+    function renderList(filterText = "") {
+      rotationListContainer.innerHTML = "";
+      const lowerFilter = filterText.toLowerCase();
+      const filteredData = rotationData.filter((trainer) =>
+        trainer.file.toLowerCase().includes(lowerFilter),
+      );
+
+      if (filteredData.length === 0) {
+        rotationListContainer.innerHTML =
+          '<p class="no-results">No rotations found.</p>';
+        return;
+      }
+
+      filteredData.forEach((trainer) => {
+        const link = document.createElement("a");
+        link.href = trainer.file;
+        link.className = "rotation-link";
+        link.innerHTML = `
+            <div class="team-portraits">
+              <img src="${trainer.teamImages[0]}" alt="">
+              <img src="${trainer.teamImages[1]}" alt="">
+              <img src="${trainer.teamImages[2]}" alt="">
+            </div>
+            <div class="rotation-info">
+              <span class="title">${trainer.title}</span>
+              <span class="description">${trainer.description}</span>
+            </div>
+          `;
+        rotationListContainer.appendChild(link);
+      });
+    }
+
+    searchBar.addEventListener("input", (e) => renderList(e.target.value));
+    renderList();
+  </script>
+  <footer style="
+        text-align: center;
+        font-size: 0.8rem;
+        color: #64748b;
+        margin-top: 2rem;
+        max-width: 800px;
+        width: 100%;
+      ">
+    <p>
+      This website is an unofficial, open-source fan project. It is not
+      affiliated with, endorsed, or sponsored by Kuro Games or Wuthering
+      Waves. All character images, assets, and game data belong entirely to
+      their respective copyright owners.
+    </p>
+  </footer>
+</body>
+
+</html>
