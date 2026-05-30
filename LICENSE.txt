@@ -1,0 +1,30 @@
+CUSTOM OPEN-SOURCE USER LICENSE (NON-COMMERCIAL, ATTRIBUTION, SHARE-ALIKE)
+Copyright (c) 2026 Gabriel Hobbies
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. INTENT & SHARING
+The core source code of this software is public. Anyone is free to read, download, run, and interact with this software without fee or restriction, subject to the conditions outlined below. 
+However, copying, replicating, or redistributing the specific data library files, curated video links, combo rotation configurations, and calculated timing frame timestamps contained within this repository is strictly prohibited.
+
+2. MANDATORY ATTRIBUTION & CREDITING
+Any individual or entity utilizing, distributing, or showcasing this source code (or any derivative work built upon it) must provide explicit, prominent attribution to the original creator Gabriel Hobbies.
+   a. Visual/Media Attribution: If the software is featured, demonstrated, or used within a video, stream, or any visual media production, the presenter must explicitly reference Gabriel Hobbies as the original software creator within the audio/video presentation itself.
+   b. Textual Attribution: Clear links and text crediting the original creator must be permanently displayed in the primary video description, post text, or platform metadata wherever the project is hosted or showcased.
+
+3. VIRAL OPEN-SOURCE RE-SHARE (SHARE-ALIKE)
+You are permitted to modify, alter, or customize this code as you see fit. However, if you distribute or host your modified version publicly, you MUST release it under these exact same license terms. 
+Your derivative code must remain public, transparent, non-obfuscated, and free for others to use under these identical conditions.
+
+4. UPGRADE RIGHTS & CONTRIBUTOR CLAUSE
+By publicly modifying, customizing, or adding new features/rotation tracking arrays to this codebase, you grant the original author (Gabriel Hobbies) a perpetual, royalty-free, worldwide right to adopt, integrate, and use those newly created modifications or feature designs to upgrade the master version of the repository.
+
+5. STRICT COMMERCIAL RESTRICTION & NON-MONETIZATION
+Commercial use of this source code is strictly prohibited. No individual or entity (other than the original author) may sell, rent, lease, or directly monetize this software, its derivative works, or its underlying timing-engine logic. 
+This includes putting the code behind paid firewalls, premium download gates, or selling custom character profile iterations built on this logic engine.
+
+-------------------------------------------------------------------------------
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE.
