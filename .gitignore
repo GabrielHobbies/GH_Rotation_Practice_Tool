@@ -1,0 +1,14 @@
+# Windows hidden thumbnail cache strings
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Mac folder indexing system trackers
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Local workspace environment nodes
+.vscode/
+.idea/
+*.log
